@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <script type="text/javascript">
+      window._AMapSecurityConfig = {
+        securityJsCode: "f37b8531a45506836a61ae8562a1b080" // 安全密钥
+      };
+    </script>
+
+<link rel="stylesheet" href="./static/WSPlayer/player.css">
+<script type="text/javascript" src="./static/WSPlayer/PlayerControl.js"></script>
+<script type="text/javascript" src="./static/WSPlayer/WSPlayer.js"></script>
+<script type="text/javascript" src="/static/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- <script src="./PlayerControl.js"></script> -->
+
+    <script type="text/javascript">
+              // var b = new RPC()
+      function a() {
+        console.log(111)
+        console.log(z)
+        console.log(RPC);
+        console.log(Object.getPrototypeOf(RPC).login);
+        console.log(Object.getPrototypeOf(RPC).login);
+
+
+        // console.log(b.login);
+        // console.log(new RPC.login());
+      }
+      a()
+    </script>
+    <!-- <script>
+      if(RPC.isSupported()) {
+        var videoElement = document.getElementById("videoElement");
+        //2.创建一个新的HLS实例
+        var hls = new RPC();
+        //3.将视频元素绑定到此 HLS实例
+            hls.attachMedia(videoElement);
+        hls.on(RPC.Events.MEDIA_ATTACHED, function() {
+          console.log("video and hls.js 已经绑定完成");
+        });
+      }
+    </script> -->
+  </body>
+</html>
