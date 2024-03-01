@@ -17,6 +17,7 @@ module.exports = {
     "RPC": "true",
     "setIP": "true",
     "z": "true",
+    "PlayerControl": "true",
   },
   // rules: {
   //   "vue/no-unused-components": "off",

@@ -3,27 +3,14 @@
     <!-- <el-input placeholder="请输入地点关键字" id="input"  v-model="searchParam" class="input" /> -->
 
     <div id="map-container"></div>
+    <info-window ref="infoWindow" v-show="show"></info-window>
 
-
-    <el-radio-group v-model="radio">
-      <el-radio label="normal">标准</el-radio>
-      <el-radio label="dark">幻影黑</el-radio>
-      <el-radio label="light">月光银</el-radio>
-      <el-radio label="whitesmoke">远山黛</el-radio>
-      <el-radio label="fresh">草色青</el-radio>
-      <el-radio label="grey">雅士灰</el-radio>
-      <el-radio label="graffiti">涂鸦</el-radio>
-      <el-radio label="macaron">马卡龙</el-radio>
-      <el-radio label="blue">靛青蓝</el-radio>
-      <el-radio label="darkblue">极夜蓝</el-radio>
-      <el-radio label="wine">酱籽</el-radio>
-    </el-radio-group>
   </div>
 </template>
 
 <script>
 import mapOptions from '@/utils/mapConfig/index.js'
-
+import InfoWindow from './InfoWindow.vue'
 
 window._AMapSecurityConfig = {
   securityJsCode: "f37b8531a45506836a61ae8562a1b080" // 安全密钥
@@ -31,7 +18,9 @@ window._AMapSecurityConfig = {
 
 export default {
   name: 'InitMap',
-
+  components: {
+    InfoWindow
+  },
 
   data() {
     return {
@@ -44,14 +33,6 @@ export default {
       overlays: null,
       searchParam: '',
       show: false,
-
-      radio: 'dark',
-    }
-  },
-
-  watch: {
-    radio: function(value){
-      this.map.setMapStyle("amap://styles/"+ value);
     }
   },
 
@@ -291,7 +272,7 @@ export default {
       infoWindow.open(this.map, position);
 
       // this.map.on('click', () => { infoWindow.close() })
-    },
+    }
   }
 }
 </script>
@@ -300,8 +281,7 @@ export default {
 <style lang="scss" scoped>
 #map-container {
   width: 100%;
-  height: 100vh;
-  position: relative;
+  height: 98vh;
 }
 
 ::v-deep .amap-info{
@@ -322,22 +302,4 @@ export default {
   left: 10px; 
   width: 200px;
 }
-
-.el-radio-group {
-  position: absolute;
-  z-index: 1;
-  width: 200px;
-  left: 10px;
-  background-color: #fff;
-  bottom: 0;
-  border: 1px solid rgba(128, 128, 128, 0.545);
-  border-radius: 5px;
-  margin-bottom: 1.25rem;
-  .el-radio{
-    display: block;
-    margin:10px 0;
-    text-align: center;
-  }
-}
-
 </style>
